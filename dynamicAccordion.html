@@ -1,0 +1,19 @@
+<template>
+    <template if:true={hasData}>
+        <div class="pdp-specification">
+            <h4 class="title">{title}</h4>
+            <lightning-accordion 
+                allow-multiple-sections-open
+                onsectiontoggle={handleSectionToggle}
+                active-section-name={activeSections}
+            >
+        
+            <template for:each={accordionData} for:item="section" for:index="index">
+                <lightning-accordion-section key={section.name} name={section.title} label={section.title}>
+                    <p>{section.content}</p>
+                </lightning-accordion-section>
+            </template>
+            </lightning-accordion>
+        </div>
+    </template>
+</template>
